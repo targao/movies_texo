@@ -1,0 +1,13 @@
+file: ./movielist.csv
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    url: "jdbc:derby:local;create=true"
+    username: "derbyuser"
+    password: "password"
+logging:
+  level:
+    org.hibernate: ERROR
+

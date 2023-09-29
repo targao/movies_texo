@@ -24,8 +24,8 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("API")
-                .description("API")
+                .title("API challenge")
+                .description("API for inserting movie list into Derby Database and listing winning prize producers")
                 .version("1.0")
                 .build();
     }

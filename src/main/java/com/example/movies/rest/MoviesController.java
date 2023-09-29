@@ -4,13 +4,14 @@ import com.example.movies.model.MovieDTO;
 import com.example.movies.model.TopBotProducersDTO;
 import com.example.movies.service.MoviesService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Api(tags = "Rest API for listing movies and producers information", value = "MoviesController")
+@Api(tags = "Movies Controller", value = "Rest for listing movies and producers information")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("movies")
@@ -23,6 +24,7 @@ public class MoviesController {
         this.moviesService = moviesService;
     }
 
+    @ApiOperation("Return a object with two lists, one for the fastest 2 prizes won by same producer and another for the slowst 2 prizes won by the same producer, consecutively.")
     @GetMapping(
             path = "producers/top-bot",
             produces = "application/json")
@@ -30,6 +32,7 @@ public class MoviesController {
         return this.moviesService.listTopBotProducers();
     }
 
+    @ApiOperation("Return a list of all the producers that have won a prize.")
     @GetMapping(
             path = "producers/winners",
             produces = "application/json")
